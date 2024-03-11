@@ -4,6 +4,7 @@ from langchain.chains import LLMChain
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from third_parties.linkedin import scrape_linked_profile
+from third_parties.twitter import scrape_user_tweets
 
 from agents.linkedin_lookup_agent import lookup as linkedin_lookup_agent
 
@@ -12,20 +13,9 @@ if __name__ == "__main__":
     load_dotenv()
     print("hello")
     os.environ.get("OPENAI_API_KEY")
-    # print(os.environ["OPENAI_API_KEY"])
-    # information = """
-    # Elon Reeve Musk (/ˈiːlɒn/; EE-lon; born June 28, 1971) is a businessman and investor. 
-    # He is the founder, chairman, CEO, and CTO of 
-    # SpaceX; angel investor, CEO, product architect, and former chairman of Tesla, Inc.; 
-    # owner, executive chairman, and CTO of X Corp.; founder of the Boring Company and xAI; 
-    # co-founder of Neuralink and OpenAI; and president of the Musk Foundation. He is one of the 
-    # wealthiest people in the world, with an estimated net worth of US$232 billion as of December 2023, according to the Bloomberg Billionaires Index, and $182.6 billion according to Forbes, primarily from his ownership stakes in Tesla and SpaceX.
-    # """
-    # res = chain.invoke(input={"information":information})
-    # print(res)
-    # print(linked_data.json())
+  
 
-    linkedin_profile_url = linkedin_lookup_agent(name="Shuvangkar Das Clarkson University")
+    linkedin_profile_url = linkedin_lookup_agent(name="Swati Kar Clarkson University")
 
     summary_template = """
     given the information {information} about a person I want you to create:
